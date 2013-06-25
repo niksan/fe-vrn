@@ -11,12 +11,14 @@
       .navbar
         .navbar-inner
           = link_to 'Free-energy!', root_path, class: 'brand'
-    .raw
+    .raw-fluid
       .span3
-        %ul.nav.nav-tabs.nav-stacked
+        %ul.nav.nav-list.well
           %li.nav-header header
           %li=link_to 'asd', '#'
           %li=link_to 'test', '#'
-          %li=link_to 'act', '#', class: 'active'
+          %li.active=link_to 'act', '#'
           .divider
+      = notice
+      = alert
       = yield

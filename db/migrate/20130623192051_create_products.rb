@@ -7,6 +7,7 @@ class CreateProducts < ActiveRecord::Migration
       t.decimal :price, precision: 7, scale: 2, default: 0.00
       t.string :ancestry
       t.string :slug
+      t.text :related_products
 
       t.timestamps
     end

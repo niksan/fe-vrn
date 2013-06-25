@@ -13,7 +13,7 @@ gem 'gritter_notices'
 gem 'kaminari'
 gem 'yaml_db', github: 'lostapathy/yaml_db'
 gem 'compass-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'friendly_id'
 
 group :assets do
