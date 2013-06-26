@@ -4,5 +4,5 @@ class Product < ActiveRecord::Base
   has_ancestry
   extend FriendlyId
   friendly_id :name, use: :slugged
-  serialise :related_products, Array
+  serialize :related_products, Array
 end

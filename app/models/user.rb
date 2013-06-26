@@ -4,4 +4,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_and_belongs_to_many :roles
+
+  def role?(role)
+    !!self.roles.find_by_name(role.to_s.downcase)
+  end
+
 end

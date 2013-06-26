@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625183328) do
+ActiveRecord::Schema.define(:version => 20130626200824) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130625183328) do
     t.datetime "updated_at", :null => false
     t.string   "ancestry"
     t.string   "slug"
+    t.integer  "position"
   end
 
   add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130625183328) do
     t.string   "ancestry"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
   add_index "categories", ["ancestry"], :name => "index_categories_on_ancestry"
@@ -47,11 +49,25 @@ ActiveRecord::Schema.define(:version => 20130625183328) do
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "gritter_notices", :force => true do |t|
+    t.integer  "owner_id",     :null => false
+    t.string   "owner_type",   :null => false
+    t.text     "text",         :null => false
+    t.text     "options",      :null => false
+    t.datetime "delivered_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gritter_notices", ["owner_id", "delivered_at"], :name => "index_gritter_notices_on_owner_id_and_delivered_at"
+
   create_table "photos", :force => true do |t|
     t.integer  "product_id"
     t.string   "image"
+    t.string   "ancestry"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
   add_index "photos", ["product_id"], :name => "index_photos_on_product_id"
@@ -66,10 +82,24 @@ ActiveRecord::Schema.define(:version => 20130625183328) do
     t.text     "related_products"
     t.datetime "created_at",                                                      :null => false
     t.datetime "updated_at",                                                      :null => false
+    t.integer  "position"
   end
 
   add_index "products", ["ancestry"], :name => "index_products_on_ancestry"
   add_index "products", ["slug"], :name => "index_products_on_slug"
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
