@@ -67,8 +67,9 @@ RailsAdmin.config do |config|
    end
 
   config.model 'Photo' do
+      configure :product, :belongs_to_association
       configure :id, :integer 
-      configure :product_id, :integer         # Hidden 
+      configure :product_id, :integer
       configure :image, :string 
       configure :created_at, :datetime 
       configure :updated_at, :datetime 
@@ -80,6 +81,8 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Product' do
+      
+      configure :photos, :has_many_association
       configure :id, :integer 
       configure :lot, :string 
       configure :name, :string 

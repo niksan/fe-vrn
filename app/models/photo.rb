@@ -3,4 +3,5 @@ class Photo < ActiveRecord::Base
   belongs_to :product
   validates :image, :product_id, presence: true
   has_ancestry
+  mount_uploader :image, PhotoUploader
 end
