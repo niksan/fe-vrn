@@ -5,4 +5,5 @@ class Category < ActiveRecord::Base
   friendly_id :name, use: :slugged
   validates :name, presence: true
   default_scope order(:position)
+  has_many :products, dependent: :destroy
 end

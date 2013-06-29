@@ -81,7 +81,7 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Product' do
-      
+      configure :category, :belongs_to_association
       configure :photos, :has_many_association
       configure :id, :integer 
       configure :lot, :string 
@@ -93,9 +93,21 @@ RailsAdmin.config do |config|
       configure :related_products, :serialized 
       configure :created_at, :datetime 
       configure :updated_at, :datetime 
-      list do; end
+      list do
+        field :name
+        field :price
+        field :lot
+      end
       show do; end
-      edit do; end
+      edit do
+        field :category
+        field :lot
+        field :name
+        field :description
+        field :price
+        field :photos
+        field :related_products
+      end
       export do; end
   end
 

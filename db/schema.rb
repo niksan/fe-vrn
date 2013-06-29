@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130626200824) do
   add_index "photos", ["product_id"], :name => "index_photos_on_product_id"
 
   create_table "products", :force => true do |t|
+    t.integer  "category_id"
     t.string   "lot"
     t.string   "name"
     t.text     "description"
