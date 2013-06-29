@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :lot, :name, :price, :related_products, :category_id, :photos_attributes
+  attr_accessible :description, :lot, :name, :price, :related_products, :category_id, :photos_attributes, :photo_ids
   validates :name, :price, presence: true
   has_ancestry
   extend FriendlyId
