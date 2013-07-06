@@ -1,5 +1,3 @@
 class MainController < ApplicationController
-  def index
-    @categories = Category.all
-  end
+  def index; end
 end
