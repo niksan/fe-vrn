@@ -6,4 +6,11 @@ class Category < ActiveRecord::Base
   validates :name, presence: true
   default_scope order(:position)
   has_many :products, dependent: :destroy
+
+  class << self
+    def for_category(cat)
+      includes(products: [:category]).find(cat)
+    end
+  end
+
 end

@@ -17,6 +17,8 @@ gem 'yaml_db', github: 'lostapathy/yaml_db'
 gem 'compass-rails'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'friendly_id'
+gem 'russian'
+gem 'jquery-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -24,7 +26,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 gem 'unicorn'
 gem 'capistrano'
 gem 'debugger'

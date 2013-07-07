@@ -14,7 +14,7 @@ RailsAdmin.config do |config|
     nestable
   end
 
-  config.main_app_name = ['Fe Vrn', 'Admin']
+  config.main_app_name = ['FeVrn', 'Admin']
   config.authorize_with :cancan
   config.current_user_method { current_user } # auto-generated
   config.audit_with :history, 'User'
@@ -107,16 +107,26 @@ RailsAdmin.config do |config|
     configure :related_products, :enum
     configure :created_at, :datetime 
     configure :updated_at, :datetime 
+    configure :photos_count, :integer do
+      read_only true
+    end
     list do
       field :name
       field :price
       field :lot
+      field :photos_count
+      field :category
     end
     show do; end
     edit do
       field :category
       field :lot
       field :name
+      field :description, :rich_editor do
+        config({
+          insert_many: true
+        })
+      end
       field :description
       field :price
       field :related_products

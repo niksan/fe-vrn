@@ -10,5 +10,7 @@ FeVrn::Application.routes.draw do
 
   root to: 'main#index'
 
-  resources :categories, :products, only: [:show]
+  resources :categories, only: [:show] do
+    resources :products, only: [:show]
+  end
 end
