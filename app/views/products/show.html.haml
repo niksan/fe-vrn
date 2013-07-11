@@ -14,7 +14,7 @@
   Цена:
   = @product.price
   руб.
-= link_to('#', class: 'btn btn-success', remote: true) do
+= link_to(cart_items_path(@product), class: 'btn btn-success', remote: true, method: :post) do
   %i.icon-shopping-cart.icon-white
   = t('actions.to_cart')
 %p!= @product.description if !@product.description.empty?
