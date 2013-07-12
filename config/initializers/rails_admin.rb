@@ -143,7 +143,9 @@ RailsAdmin.config do |config|
     configure :updated_at, :datetime 
     list do; end
     show do; end
-    edit do; end
+    edit do
+      field :name
+    end
     export do; end
   end
 
