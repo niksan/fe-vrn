@@ -1,6 +1,5 @@
 FeVrn::Application.routes.draw do
 
-  get "products/show"
 
   mount Rich::Engine => '/rich', :as => 'rich'
 
@@ -13,4 +12,7 @@ FeVrn::Application.routes.draw do
   resources :categories, only: [:show] do
     resources :products, only: [:show]
   end
+
+  post 'cart_items/:id', to: "cart_items#create", as: 'cart_items'
+
 end
