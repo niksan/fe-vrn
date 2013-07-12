@@ -7,7 +7,10 @@
   = stylesheet_link_tag params[:controller]
   = javascript_include_tag params[:controller]
   = csrf_meta_tags
+  = include_gritter
 %body
+  = gflash
+  = gritter_flash_messages
   .container
     .raw
       .navbar
