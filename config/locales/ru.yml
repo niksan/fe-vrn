@@ -1,4 +1,6 @@
 ru:
+  cart_item:
+    added: 'Товар добавлен в корзину'
   actions:
     to_cart: 'в корзину'
     buy: 'купить'
