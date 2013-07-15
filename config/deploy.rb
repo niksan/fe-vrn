@@ -1,25 +1,13 @@
-# Если вы используете другую систему управления зависимостями,
-# закомментируйте эту строку.
 require 'bundler/capistrano'
-
-## Чтобы не хранить database.yml в системе контроля версий, поместите
-## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
-## следующие строки.
-
-after "deploy:update_code", :copy_database_config
-task :copy_database_config, roles => :app do
-  db_config = "#{shared_path}/database.yml"
-  run "cp #{db_config} #{release_path}/config/database.yml"
-end
-
 load 'deploy/assets'
 
 ssh_options[:forward_agent] = true
+
 set :application,     'fe-vrn'
-set :deploy_server,   'lithium.locum.ru'
+set :deploy_server,   "lithium.locum.ru"
 set :bundle_without,  [:development, :test]
-set :user,            'hosting_niksan'
-set :login,           'niksan'
+set :user,            "hosting_niksan"
+set :login,           "niksan"
 set :use_sudo,        false
 set :deploy_to,       "/home/#{user}/projects/#{application}"
 set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
@@ -28,18 +16,41 @@ set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
 role :web,            deploy_server
 role :app,            deploy_server
 role :db,             deploy_server, :primary => true
-set :rvm_ruby_string, '2.0.0'
+set :rvm_ruby_string, "2.0.0-p0"
 set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake" 
 set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 set :scm,             :git
-set :repository,      'git@github.com:niksan/fe-vrn.git'
+set :repository,      "git@github.com:niksan/fe-vrn.git"
+
+before "deploy:assets:precompile", :remove_paths, :set_links
+after "deploy:update_code", :do_migrations
+
+task :remove_paths, roles => :app do
+  run "rm -rf #{release_path}/tmp"
+end
+
+task :set_links, roles => :app do
+  links = {
+    '/uploads' => '/public/uploads',
+    '/system' => '/public/system',
+    '/config/database.yml' => '/config/database.yml'
+  }
+  links.each do |from, destination|
+    run "rm -rf #{release_path}#{destination}"
+    run "ln -s #{shared_path}#{from} #{release_path}#{destination}"
+  end
+end
+
+task :do_migrations, roles => :app do
+  run "cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec rake RAILS_ENV=production db:migrate"
+end
 
 before 'deploy:finalize_update', 'set_current_release'
 task :set_current_release, :roles => :app do
     set :current_release, latest_release
 end
 
-set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
+  set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 namespace :deploy do
   desc "Start application"
@@ -49,11 +60,11 @@ namespace :deploy do
 
   desc "Stop application"
   task :stop, :roles => :app do
-    run "[ -f #{unicorn_pid} ] &amp;&amp; kill -QUIT `cat #{unicorn_pid}`"
+    run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}`"
   end
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    run "[ -f #{unicorn_pid} ] &amp;&amp; kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
+    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
   end
 end
