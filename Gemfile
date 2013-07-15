@@ -29,6 +29,6 @@ end
 gem 'unicorn'
 gem 'capistrano'
 gem 'debugger'
-gem 'execjs'
 gem 'therubyracer'
+gem 'execjs'
 gem 'libv8'
