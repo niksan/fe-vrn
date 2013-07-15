@@ -5,19 +5,19 @@ ssh_options[:forward_agent] = true
 
 set :keep_releases, 3
 set :application,     'fe-vrn'
-set :deploy_server,   'lithium.locum.ru'
+set :deploy_server,   "82.196.2.187"
 set :bundle_without,  [:development, :test]
-set :user,            'hosting_niksan'
-set :login,           'niksan'
+set :user,            "root"
+set :login,           "niksan"
 set :use_sudo,        false
-set :deploy_to,       "/home/#{user}/projects/#{application}"
-set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
-set :unicorn_pid,     "/var/run/unicorn/#{application}.#{login}.pid"
+set :deploy_to,       "/srv/htdocs/#{application}"
+set :unicorn_conf,    "#{deploy_to}/current/config/unicorn.rb"
+set :unicorn_pid,     "#{deploy_to}/shared/pids/unicorn.pid"
 set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
 role :web,            deploy_server
 role :app,            deploy_server
 role :db,             deploy_server, primary: true
-set :rvm_ruby_string, '2.0.0'
+set :rvm_ruby_string, '2.0.0-p247'
 set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake" 
 set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 set :scm,             :git
