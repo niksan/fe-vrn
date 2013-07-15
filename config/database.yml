@@ -49,7 +49,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: fe-vrn_production
+  database: niksan_fe-vrn36
   pool: 5
-  username: postgres
-  password: 860827
+  username: niksan_fe-vrn36
+  password: ARcqNp4x
+  host: postgresql5.locum.ru
