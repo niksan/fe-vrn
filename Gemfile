@@ -29,3 +29,6 @@ end
 gem 'unicorn'
 gem 'capistrano'
 gem 'debugger'
+gem 'execjs'
+gem 'therubyracer'
+gem 'libv8'
