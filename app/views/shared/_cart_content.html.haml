@@ -1,8 +1,12 @@
 #cart_content
-  %p
-    = cart.quantity
-    товаров
-  %p
-    на сумму
-    = cart.price
-    рублей
+  - unless cart.empty?
+    %p
+      = cart.quantity
+      товаров
+    %p
+      на сумму
+      = cart.price
+      рублей
+    = link_to 'перейти к заказу', cart_index_path, class: 'btn btn-success', id: "to_cart_index"
+  - else
+    %p корзина пока пуста

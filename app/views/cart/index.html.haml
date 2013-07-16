@@ -1,2 +1,12 @@
-%h1 Cart#index
-%p Find me in app/views/cart/index.html.haml
+%h1 Корзина
+%table.table.table-hover.table-bordered.table-condensed
+  %thead
+    %th наименование
+    %th кол-во
+    %th стоимость
+  %tbody
+    - @cart.items.each do |item|
+      %tr
+        %td= truncate(item.product.name, length: 30, sperator: ' ', omission: '...')
+        %td= item.quantity
+        %td= item.price

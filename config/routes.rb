@@ -1,6 +1,5 @@
 FeVrn::Application.routes.draw do
 
-
   mount Rich::Engine => '/rich', :as => 'rich'
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
@@ -14,5 +13,6 @@ FeVrn::Application.routes.draw do
   end
 
   post 'cart_items/:id', to: "cart_items#create", as: 'cart_items'
-
+  resources :cart, only: [:index]
+  
 end
