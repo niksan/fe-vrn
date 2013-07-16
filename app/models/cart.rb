@@ -24,7 +24,7 @@ class Cart
   end
 
   def empty?
-    @items.empty?
+    @items.size > 0
   end
 
   def empty!
