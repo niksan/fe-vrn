@@ -19,7 +19,7 @@ RailsAdmin.config do |config|
   config.current_user_method { current_user } # auto-generated
   config.audit_with :history, 'User'
 
-  config.excluded_models = ['GritterNotice', 'Rich::RichFile']
+  config.excluded_models = ['GritterNotice', 'Ckeditor::Asset', 'Ckeditor::AttachmentFile', 'Ckeditor::Picture']
 
   [:email, :title].each do |method|
     config.label_methods << method
@@ -40,10 +40,10 @@ RailsAdmin.config do |config|
     show do; end
     edit do
       field :title
-      field :body, :rich_editor do
-        config({
-          insert_many: true
-        })
+      field :body do
+        ckeditor do
+          true
+        end
       end
     end
     export do; end
@@ -122,12 +122,11 @@ RailsAdmin.config do |config|
       field :category
       field :lot
       field :name
-      field :description, :rich_editor do
-        config({
-          insert_many: true
-        })
+      field :description do
+        ckeditor do
+          true
+        end
       end
-      field :description
       field :price
       field :related_products
       field :photos

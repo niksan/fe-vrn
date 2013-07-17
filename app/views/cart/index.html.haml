@@ -1,12 +1,13 @@
-%h1 Корзина
-%table.table.table-hover.table-bordered.table-condensed
-  %thead
-    %th наименование
-    %th кол-во
-    %th стоимость
-  %tbody
-    - @cart.items.each do |item|
-      %tr
-        %td= truncate(item.product.name, length: 30, sperator: ' ', omission: '...')
-        %td= item.quantity
-        %td= item.price
+%h1= t('cart.title')
+= form_for :cart_item do |f|
+  %table#cart_table.table.table-hover.table-bordered.table-condensed
+    %thead
+      %th.name= t('cart_item.name')
+      %th.quantity= t('cart_item.quantity_short')
+      %th.price= t('cart_item.price')
+    %tbody
+      - @cart.items.each do |item|
+        = render partial: 'cart/items/item', locals: { item: item, f: f }
+  .form-actions
+    = f.submit t('cart.recalculate'), class: 'btn btn-success'
+    = link_to t('cart.checkout'), '', class: 'btn btn-primary'

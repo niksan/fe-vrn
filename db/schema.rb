@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130706181004) do
+ActiveRecord::Schema.define(:version => 20130717213205) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -37,6 +37,22 @@ ActiveRecord::Schema.define(:version => 20130706181004) do
 
   add_index "categories", ["ancestry"], :name => "index_categories_on_ancestry"
   add_index "categories", ["slug"], :name => "index_categories_on_slug"
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -101,19 +117,6 @@ ActiveRecord::Schema.define(:version => 20130706181004) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
-
-  create_table "rich_rich_files", :force => true do |t|
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.string   "rich_file_file_name"
-    t.string   "rich_file_content_type"
-    t.integer  "rich_file_file_size"
-    t.datetime "rich_file_updated_at"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.text     "uri_cache"
-    t.string   "simplified_type",        :default => "file"
-  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

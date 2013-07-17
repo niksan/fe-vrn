@@ -1,6 +1,19 @@
 ru:
+  cart:
+    products: 'товаров'
+    currency: 'рублей'
+    on_sum: 'на сумму'
+    empty: 'корзина пока пуста'
+    sidebar_title: 'Ваша корзина'
+    title: 'Корзина'
+    go_to_cart: 'перейти в корзину'
+    recalculate: 'пересчитать'
+    checkout: 'оформить заказ'
   cart_item:
     added: 'Товар добавлен в корзину'
+    name: 'наименование'
+    quantity_short: 'кол-во'
+    price: 'стоимость'
   actions:
     to_cart: 'в корзину'
     buy: 'купить'
