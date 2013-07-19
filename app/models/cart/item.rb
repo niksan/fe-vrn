@@ -13,7 +13,7 @@ class Cart::Item
   end
 
   def increment_quantity(quantity)
-    @quantity += quantity.to_i
+    @quantity += quantity
   end
 
   def name
@@ -21,7 +21,7 @@ class Cart::Item
   end
 
   def price
-    product.price * @quantity
+    product.price * @quantity.to_i
   end
 
   def delete!

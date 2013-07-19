@@ -40,7 +40,7 @@ class Cart
   end
 
   def item(id)
-    @items.find { |item| item.product_id == id }
+    @items.find { |item| item.product.id == id }
   end
 
 end

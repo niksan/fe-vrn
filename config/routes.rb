@@ -16,6 +16,7 @@ FeVrn::Application.routes.draw do
     post 'items/:id', to: "items#create", as: 'items'
   end
 
-  resources :cart, only: [:index]
-  
+  get 'cart' => 'cart#index', as: 'cart_index'
+  put 'cart' => 'cart#update', as: 'cart'
+
 end

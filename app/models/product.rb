@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :lot, :name, :price, :related_products, :category_id, :photos_attributes
+  attr_accessible :description, :lot, :name, :price, :related_products, :category_id, :photos_attributes, :remove_image
   validates :name, :price, :category_id, presence: true
   validates :lot, uniqueness: true, allow_blank: true
   has_ancestry
