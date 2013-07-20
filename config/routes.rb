@@ -19,4 +19,6 @@ FeVrn::Application.routes.draw do
   get 'cart' => 'cart#index', as: 'cart_index'
   put 'cart' => 'cart#update', as: 'cart'
 
+  resources :orders, only: [:new, :create]
+
 end

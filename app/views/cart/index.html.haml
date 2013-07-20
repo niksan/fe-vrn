@@ -8,6 +8,10 @@
     %tbody
       - @cart.items.each do |item|
         = render partial: 'cart/items/item', locals: { item: item, f: f }
+    %tfoot
+      %tr.sum
+        %td{ colspan: 2 }= t('cart.sum')
+        %td= @cart.price
   .form-actions
     = f.submit t('cart.recalculate'), class: 'btn btn-success'
-    = link_to t('cart.checkout'), '', class: 'btn btn-primary'
+    = link_to t('cart.checkout'), new_order_path, class: 'btn btn-primary'

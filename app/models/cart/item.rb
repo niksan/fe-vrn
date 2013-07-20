@@ -1,4 +1,4 @@
-class Cart::Item
+class Cart::Item < ActiveResource::Base
 
   attr_reader :product, :product_id
   attr_accessor :quantity
@@ -25,7 +25,7 @@ class Cart::Item
   end
 
   def delete!
-    self.class.delete
+    puts self.class.objects
   end
 
 end
