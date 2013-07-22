@@ -1,4 +1,6 @@
 ru:
+  order:
+    create: 'завершить оформление'
   cart:
     sum: 'Итого:'
     updated: 'пересчитано'
@@ -310,6 +312,11 @@ ru:
         few: 'страницы'
         many: 'страницы'
         other: 'страницы'
+      order:
+        one: 'заказ'
+        few: 'заказы'
+        many: 'заказы'
+        other: 'заказы'
       product: 
         one: 'товар'
         few: 'товары'
@@ -345,6 +352,13 @@ ru:
         name: 'название'
         created_at: 'создано'
         updated_at: 'обновлено'
+      order:
+        first_name: 'имя'
+        last_name: 'фамилия'
+        phone: 'телефон'
+        email: 'e-mail'
+        address: 'адрес'
+        additional: 'дополнительная информация'
       page:
         title: 'заголовок'
         body: 'контент'

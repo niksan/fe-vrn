@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717213205) do
+ActiveRecord::Schema.define(:version => 20130722183027) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -76,6 +76,25 @@ ActiveRecord::Schema.define(:version => 20130717213205) do
   end
 
   add_index "gritter_notices", ["owner_id", "delivered_at"], :name => "index_gritter_notices_on_owner_id_and_delivered_at"
+
+  create_table "order_items", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.decimal  "price"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "address"
+    t.text     "additional"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "photos", :force => true do |t|
     t.integer  "product_id"
