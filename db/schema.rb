@@ -97,8 +97,9 @@ ActiveRecord::Schema.define(:version => 20130717213205) do
     t.string   "ancestry"
     t.string   "slug"
     t.text     "related_products"
-    t.datetime "created_at",                                                      :null => false
-    t.datetime "updated_at",                                                      :null => false
+    t.boolean  "disabled",                                       :default => false
+    t.datetime "created_at",                                                        :null => false
+    t.datetime "updated_at",                                                        :null => false
     t.integer  "position"
   end
 

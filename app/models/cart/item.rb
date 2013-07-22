@@ -1,6 +1,6 @@
 class Cart::Item < ActiveResource::Base
 
-  attr_reader :product, :product_id
+  attr_reader :product_id
   attr_accessor :quantity
 
   def initialize(product_id, quantity=1)
@@ -9,7 +9,11 @@ class Cart::Item < ActiveResource::Base
   end
 
   def product
-    @product ||= Product.find(self.product_id)
+    begin
+      Product.find(self.product_id)
+    rescue ActiveRecord::RecordNotFound
+      Product.new(name: 'Error! This item not found.')
+    end
   end
 
   def increment_quantity(quantity)
