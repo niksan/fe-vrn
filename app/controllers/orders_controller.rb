@@ -13,9 +13,10 @@ class OrdersController < ApplicationController
                               price: item.price,
                               order_id: @order.id)
         end
+        @cart.empty!
+        OrderMailer.order([], []).deliver
       end
       flash[:success] = t('order.save.success')
-      @cart.empty!
       redirect_to root_path
      rescue
        flash[:error] = t('order.save.error')
