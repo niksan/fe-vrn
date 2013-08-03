@@ -4,21 +4,23 @@ class OrdersController < ApplicationController
 
   def create
     begin
-      ActiveRecord::Base.transaction do 
-        @order = Order.create!(params[:order])
+      ActiveRecord::Base.transaction do
+        @order = Order.new(params[:order])
+        @order.save!
+        @cart.items.each do |item|
+          Order::Item.create!(product_id: item.product_id,
+                              quantity: item.quantity,
+                              price: item.price,
+                              order_id: @order.id)
+        end
       end
-      act = false
-    rescue
-      act = true
-    end
-
-    if act
-      flash[:success] = 'Ваш заказ принят в обработку, спасибо!'
+      flash[:success] = t('order.save.success')
+      @cart.empty!
       redirect_to root_path
-    else
-      flash[:error] = 'Заказ не отправлен.'
-      render :new
-    end
-  end
+     rescue
+       flash[:error] = t('order.save.error')
+       render :new
+     end
+   end
 
 end
