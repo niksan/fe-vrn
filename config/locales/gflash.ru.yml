@@ -5,7 +5,7 @@ ru:
     #
     titles:
       notice: "Уведомление"
-      success: "Доступ"
+      success: "Успешно"
       warning: "Предупреждение"
       error: "Ошибка"
       progress: "Прогресс"
