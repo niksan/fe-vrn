@@ -32,4 +32,8 @@ class Cart::Item < ActiveResource::Base
     puts self.class.objects
   end
 
+  def to_s
+    "#{product.name}, #{quantity} шт. , #{price} руб."
+  end
+
 end

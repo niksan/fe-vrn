@@ -43,4 +43,11 @@ class Cart
     @items.find { |item| item.product.id == id }
   end
 
+  def to_s
+    datas = []
+    items.each { |item| datas << item.to_s }
+    datas << "Итого: #{price} руб."
+    datas
+  end
+
 end
