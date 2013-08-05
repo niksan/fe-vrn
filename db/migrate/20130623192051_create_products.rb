@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :ancestry
       t.string :slug
       t.text :related_products
+      t.boolean :disabled, default: false
 
       t.timestamps
     end

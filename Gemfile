@@ -4,7 +4,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'rails_admin'
 gem 'rails_admin_nestable'
-gem 'rich'
+gem 'ckeditor'
 gem 'devise'
 gem 'cancan'
 gem 'ancestry'
@@ -24,6 +24,14 @@ gem 'coffee-rails', '~> 3.2.1'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'letter_opener'
+  gem 'thin'
 end
 
 gem 'unicorn'

@@ -24,7 +24,7 @@ class Cart
   end
 
   def empty?
-    @items.empty?
+    @items.size <= 0
   end
 
   def empty!
@@ -40,7 +40,14 @@ class Cart
   end
 
   def item(id)
-    @items.find { |item| item.product_id == id }
+    @items.find { |item| item.product.id == id }
+  end
+
+  def to_s
+    datas = []
+    items.each { |item| datas << item.to_s }
+    datas << "Итого: #{price} руб."
+    datas
   end
 
 end

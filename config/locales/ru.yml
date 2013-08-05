@@ -1,6 +1,26 @@
 ru:
+  order:
+    create: 'завершить оформление'
+    save:
+      error: 'Заказ не отправлен.'
+      success: 'Ваш заказ принят в обработку, спасибо!'
+  cart:
+    sum: 'Итого:'
+    updated: 'пересчитано'
+    products: 'товаров'
+    currency: 'рублей'
+    on_sum: 'на сумму'
+    empty: 'корзина пока пуста'
+    sidebar_title: 'Ваша корзина'
+    title: 'Корзина'
+    go_to_cart: 'перейти в корзину'
+    recalculate: 'пересчитать'
+    checkout: 'оформить заказ'
   cart_item:
     added: 'Товар добавлен в корзину'
+    name: 'наименование'
+    quantity_short: 'кол-во'
+    price: 'стоимость'
   actions:
     to_cart: 'в корзину'
     buy: 'купить'
@@ -231,7 +251,7 @@ ru:
 
   # In rails 3 errors is top-level namespace
   errors:
-    format: "%{attribute} %{message}"
+    format: 'поле "%{attribute}" %{message}'
 
     messages: &errors_messages
       wrong_size: "is the wrong size (should be %{file_size})"
@@ -278,91 +298,6 @@ ru:
         other: "%{model}: сохранение не удалось из-за %{count} ошибки"
       body: "Проблемы возникли со следующими полями:"
 
-  activerecord:
-    models:
-      article: 
-        one: 'статья'
-        few: 'статьи'
-        many: 'статьи'
-        other: 'статьи'
-      category:
-        one: 'категория'
-        few: 'категории'
-        many: 'категории'
-        other: 'категории'
-      page: 
-        one: 'страница'
-        few: 'страницы'
-        many: 'страницы'
-        other: 'страницы'
-      product: 
-        one: 'товар'
-        few: 'товары'
-        many: 'товары'
-        other: 'товары'
-      photo: 
-        one: 'фото'
-        few: 'фото'
-        many: 'фото'
-        other: 'фото'
-      role: 
-        one: 'роль'
-        few: 'роли'
-        many: 'роли'
-        other: 'роли'
-      gallery: 
-        one: 'галерея'
-        few: 'галереи'
-        many: 'галереи'
-        other: 'галереи'
-      user: 
-        one: 'пользователь'
-        few: 'пользователи'
-        many: 'пользователи'
-        other: 'пользователи'
-    attributes:
-      article:
-        title: 'заголовок'
-        body: 'контент'
-        created_at: 'создано'
-        updated_at: 'обновлено'
-      category:
-        name: 'название'
-        created_at: 'создано'
-        updated_at: 'обновлено'
-      page:
-        title: 'заголовок'
-        body: 'контент'
-        created_at: 'создано'
-        updated_at: 'обновлено'
-      product:
-        photos_count: 'кол-во изображений'
-        photos_attributes: 'изображение'
-        category: 'категория'
-        description: 'описание'
-        related_products: 'связанные продукты'
-        photos: 'фото'
-        photo: 'фото'
-        name: 'название'
-        price: 'цена'
-        lot: 'лот'
-        created_at: 'создано'
-        updated_at: 'обновлено'
-      gallery:
-        name: 'название'
-        image: 'изображение'
-        created_at: 'создано'
-        updated_at: 'обновлено'
-      user:
-        email: 'e-mail'
-        password: 'пароль'
-        last_sign_in_at: 'крайняя авторизация'
-        sign_in_count: 'количество авторизаций'
-        current_password: 'текущий пароль'
-        password_confirmation: 'подтверждение пароля'
-        created_at: 'создано'
-        updated_at: 'обновлено'
-        roles: 'роли'
     errors:
       messages:
         <<: *errors_messages
@@ -370,12 +305,9 @@ ru:
         <<: *errors_template
       full_messages:
         format: "%{attribute} %{message}"
-
-
   support:
     select:
       prompt: "Выберите: "
-
     array:
       words_connector: ", "
       two_words_connector: " и "
