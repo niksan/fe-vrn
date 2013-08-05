@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
       ActiveRecord::Base.transaction do
         @order = Order.new(params[:order])
         @order.save!
-        create_order_items!
+       create_order_items!
         OrderMailer.order(get_order_datas(params[:order]), @cart.to_s).deliver
         @cart.empty!
       end
