@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   def new; end
 
   def create
-    begin
+#    begin
       ActiveRecord::Base.transaction do
         @order = Order.new(params[:order])
         @order.save!
@@ -11,12 +11,12 @@ class OrdersController < ApplicationController
         OrderMailer.order(get_order_datas(params[:order]), @cart.to_s).deliver
         @cart.empty!
       end
-      flash[:success] = t('order.save.success')
-      redirect_to root_path
-     rescue
+#      flash[:success] = t('order.save.success')
+#      redirect_to root_path
+#     rescue
        flash[:error] = t('order.save.error')
        render :new
-     end
+#     end
    end
 
    private
