@@ -181,4 +181,41 @@ RailsAdmin.config do |config|
     export do; end
   end
 
+  config.model 'Order' do
+    configure :items, :has_many_association
+    configure :id, :integer 
+    configure :first_name, :string
+    configure :last_name, :string
+    configure :phone, :string
+    configure :address, :string
+    configure :email, :string
+    configure :additional, :text
+    configure :state, :string
+    configure :created_at, :datetime 
+    configure :updated_at, :datetime 
+    list do; end
+    show do; end
+    edit do
+      field :state
+    end
+    export do; end
+  end
+
+  config.model 'Order::Item' do
+    visible false
+    configure :order, :belongs_to_association
+    configure :product, :belongs_to_association
+    configure :id, :integer 
+    configure :quantity, :integer
+    configure :price, :float
+    configure :created_at, :datetime 
+    configure :updated_at, :datetime 
+    list do; end
+    show do; end
+    edit do
+      field :name
+    end
+    export do; end
+  end
+
 end

@@ -3,4 +3,15 @@ class Order < ActiveRecord::Base
   validates :first_name, :last_name, :phone, :address, presence: true
 
   has_many :items, dependent: :destroy
+
+  state_machine :state, initial: :initialized do
+    
+    state :initialized, :inprogress, :finished
+
+    event :finish do
+      transition all => :finished
+    end
+
+  end
+
 end
