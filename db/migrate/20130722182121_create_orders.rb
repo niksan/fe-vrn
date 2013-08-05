@@ -7,6 +7,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :address
       t.string :email
       t.text :additional
+      t.string :state
 
       t.timestamps
     end
