@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20130722183027) do
     t.string   "address"
     t.string   "email"
     t.text     "additional"
+    t.string   "state"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
