@@ -10,7 +10,7 @@ class Product < ActiveRecord::Base
   belongs_to :category
   accepts_nested_attributes_for :photos, allow_destroy: true
   
-  default_scope where(disabled: false).order('category_id, name')
+  default_scope where(disabled: false).order('category_id, price, name')
   
   def related_products_enum
     Product.order(:name).map { |p| [p.name, p.id] }

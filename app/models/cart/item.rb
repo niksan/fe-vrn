@@ -28,10 +28,6 @@ class Cart::Item < ActiveResource::Base
     product.price * @quantity.to_i
   end
 
-  def delete!
-    puts self.class.objects
-  end
-
   def to_s
     "#{product.name}, #{quantity} шт. , #{price} руб."
   end

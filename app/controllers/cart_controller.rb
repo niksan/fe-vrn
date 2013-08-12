@@ -6,8 +6,9 @@ class CartController < ApplicationController
 
   def update
     params[:cart_items].each do |item, quantity|
-      @cart.item(item.to_i).delete! if quantity.to_i == 0
-      @cart.item(item.to_i).quantity = quantity.to_i
+      current_item = @cart.item(item.to_i)
+      @cart.items.delete(current_item) if quantity.to_i == 0
+      current_item.quantity = quantity.to_i if current_item
     end
     gflash notice: t('cart.updated')
     redirect_to cart_index_path
