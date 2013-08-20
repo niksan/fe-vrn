@@ -7,7 +7,7 @@ class CartController < ApplicationController
   def update
     params[:cart_items].each do |item, quantity|
       current_item = @cart.item(item.to_i)
-      @cart.items.delete(current_item) if quantity.to_i == 0
+      @cart.delete_by_id(current_item) if quantity.to_i == 0
       current_item.quantity = quantity.to_i if current_item
     end
     gflash notice: t('cart.updated')

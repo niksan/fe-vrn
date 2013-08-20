@@ -35,6 +35,10 @@ class Cart
     @items.delete_if { |item| item.product_id == id.to_i }
   end
 
+  def delete_by_id(product_id)
+    @items.delete_if { |i| !!Product.find(i.product_id) }
+  end
+
   def delete_broken_items
     @items.delete_if { |i| ! !!Product.find(i.product_id) }
   end
