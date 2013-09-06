@@ -26,6 +26,7 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Article' do
+    nestable_list true
     configure :id, :integer 
     configure :title, :string 
     configure :body, :text 
@@ -74,6 +75,7 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Page' do
+    nestable_list true
     configure :id, :integer 
     configure :title, :string 
     configure :body, :text 
