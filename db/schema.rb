@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722183027) do
+ActiveRecord::Schema.define(:version => 20130906163934) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -114,14 +114,15 @@ ActiveRecord::Schema.define(:version => 20130722183027) do
     t.string   "lot"
     t.string   "name"
     t.text     "description"
-    t.decimal  "price",            :precision => 7, :scale => 2, :default => 0.0
+    t.decimal  "price",             :precision => 7, :scale => 2, :default => 0.0
     t.string   "ancestry"
     t.string   "slug"
     t.text     "related_products"
-    t.boolean  "disabled",                                       :default => false
-    t.datetime "created_at",                                                        :null => false
-    t.datetime "updated_at",                                                        :null => false
+    t.boolean  "disabled",                                        :default => false
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
     t.integer  "position"
+    t.boolean  "show_on_main_page",                               :default => false
   end
 
   add_index "products", ["ancestry"], :name => "index_products_on_ancestry"
