@@ -73,6 +73,30 @@ RailsAdmin.config do |config|
     export do; end
   end
 
+  config.model 'Page' do
+    configure :id, :integer 
+    configure :title, :string 
+    configure :body, :text 
+    configure :created_at, :datetime 
+    configure :updated_at, :datetime 
+    configure :ancestry, :string 
+    configure :slug, :string 
+    list do
+      field :id
+      field :title
+    end
+    show do; end
+    edit do
+      field :title
+      field :body do
+        ckeditor do
+          true
+        end
+      end
+    end
+    export do; end
+  end
+
   config.model 'Photo' do
     visible false
     nestable_list true
@@ -107,6 +131,7 @@ RailsAdmin.config do |config|
     configure :related_products, :enum
     configure :created_at, :datetime 
     configure :updated_at, :datetime 
+    configure :show_on_main_page, :boolean
     configure :photos_count, :integer do
       read_only true
     end
@@ -116,6 +141,7 @@ RailsAdmin.config do |config|
       field :lot
       field :photos_count
       field :category
+      field :show_on_main_page
     end
     show do; end
     edit do
@@ -130,6 +156,7 @@ RailsAdmin.config do |config|
       field :price
       field :related_products
       field :photos
+      field :show_on_main_page
     end
     export do; end
   end

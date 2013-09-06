@@ -1,5 +1,7 @@
 FeVrn::Application.routes.draw do
 
+  get "pages/show"
+
   mount Ckeditor::Engine => '/ckeditor'
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
@@ -20,5 +22,6 @@ FeVrn::Application.routes.draw do
   put 'cart' => 'cart#update', as: 'cart'
 
   resources :orders, only: [:new, :create]
+  resources :articles, :pages, only: [:show]
 
 end

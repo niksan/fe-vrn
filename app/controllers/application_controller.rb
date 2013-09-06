@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :find_root_categories, :initialize_cart
+  before_filter :find_menu_items, :initialize_cart
   
   private
     
@@ -8,8 +8,10 @@ class ApplicationController < ActionController::Base
       @cart = session[:cart] ||= Cart.new
     end
 
-    def find_root_categories
+    def find_menu_items
+      @pages = Page.all
       @root_categories = Category.roots.order(:position)
+      @articles = Article.all
     end
 
 end

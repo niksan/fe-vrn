@@ -13,5 +13,7 @@ jQuery ->
     window.location = $(@).parent().parent().find('.name a').attr('href')
     return false
   $('ul#products .img img, img.photo').lazyload({
+    skip_invisible : false
+    failure_limit : 10,
     effect : "fadeIn"
   })
