@@ -13,6 +13,14 @@
     .raw
       .navbar
         .navbar-inner
+          = link_to image_tag('logo.png'), root_path, id: 'logo'
+          #slogans_block
+            .first Свободная энергия
+            .second Free energy
+          #contacts_block
+            .phone
+              %span.prefix +7 (903)
+              %span.number 656-91-33
     .raw
       = render partial: 'shared/carousel', locals: { slides: @slides }
     .raw
@@ -25,4 +33,4 @@
       .span8
         = notice
         = alert
-        = yield
+        #content= yield
