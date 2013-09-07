@@ -8,5 +8,7 @@ class Ability
     else
       can :read, :all
     end
+    cannot :destroy, Order
+    cannot :destroy, Order::Item
   end
 end

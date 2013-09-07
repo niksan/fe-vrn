@@ -54,7 +54,14 @@ ru:
         few: 'пользователи'
         many: 'пользователи'
         other: 'пользователи'
+      slide: 
+        one: 'слайд'
+        few: 'слайды'
+        many: 'слайды'
+        other: 'слайды'
     attributes:
+      slide:
+        image: 'изображение'
       article:
         title: 'заголовок'
         body: 'контент'
@@ -65,12 +72,17 @@ ru:
         created_at: 'создано'
         updated_at: 'обновлено'
       order:
+        id: 'номер'
         first_name: 'имя'
         last_name: 'фамилия'
         phone: 'телефон'
         email: 'e-mail'
         address: 'адрес'
         additional: 'дополнительная информация'
+        state: 'статус'
+        items: 'наименования'
+        created_at: 'создано'
+        updated_at: 'обновлено'
       page:
         title: 'заголовок'
         body: 'контент'

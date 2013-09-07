@@ -1,6 +1,13 @@
 class Order::Item < ActiveRecord::Base
   attr_accessible :order_id, :price, :product_id, :quantity
-  validates :order_id, :price, :product_id, :quantity, presence:true
+  validates :order_id, :price, :product_id, :quantity, presence: true
+  belongs_to :product
+  belongs_to :order
+
+  def name
+    "#{product.name}, #{quantity} шт., #{price} руб."
+  end
+  alias_method :label, :name
 
   def price
     read_attribute(:price).to_f

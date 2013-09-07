@@ -177,7 +177,27 @@ RailsAdmin.config do |config|
     export do; end
   end
 
-   config.model 'User' do
+
+  config.model 'Slide' do
+    nestable_list true
+    configure :id, :integer 
+    configure :ancestry, :string 
+    configure :position, :integer
+    configure :image, :carrierwave
+    configure :created_at, :datetime 
+    configure :updated_at, :datetime 
+    list do
+      field :id
+      field :image
+    end
+    show do; end
+    edit do
+      field :image
+    end
+    export do; end
+  end
+
+  config.model 'User' do
     configure :roles do
       inverse_of :users
     end
@@ -211,7 +231,9 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Order' do
-    configure :items, :has_many_association
+    configure :items, :has_many_association do
+      read_only true
+    end
     configure :id, :integer 
     configure :first_name, :string
     configure :last_name, :string
@@ -219,13 +241,21 @@ RailsAdmin.config do |config|
     configure :address, :string
     configure :email, :string
     configure :additional, :text
-    configure :state, :string
+    configure :state, :enum
     configure :created_at, :datetime 
     configure :updated_at, :datetime 
-    list do; end
+    list do
+      field :id
+      field :state
+      field :first_name
+      field :last_name
+      field :phone
+      field :email
+    end
     show do; end
     edit do
       field :state
+      field :items
     end
     export do; end
   end
