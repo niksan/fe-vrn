@@ -9,7 +9,7 @@ class Category < ActiveRecord::Base
 
   class << self
     def for_category(cat)
-      includes(products: [:category]).find(cat)
+      includes(:products).find(cat)
     end
   end
 
