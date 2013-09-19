@@ -86,6 +86,7 @@ RailsAdmin.config do |config|
     list do
       field :id
       field :title
+      field :key
     end
     show do; end
     edit do
@@ -94,6 +95,7 @@ RailsAdmin.config do |config|
         ckeditor do
           true
         end
+        field :key
       end
     end
     export do; end
