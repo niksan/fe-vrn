@@ -10,8 +10,8 @@ FeVrn::Application.routes.draw do
 
   root to: 'main#index'
 
-  resources :categories, only: [:show] do
-    resources :products, only: [:show]
+  resources :categories, only: :show do
+    resources :products, only: :show
   end
 
   namespace :cart do
@@ -22,6 +22,7 @@ FeVrn::Application.routes.draw do
   put 'cart' => 'cart#update', as: 'cart'
 
   resources :orders, only: [:new, :create]
-  resources :articles, :pages, only: [:show]
+  resources :articles, :pages, only: :show
+  resources :contacts, only: :index
 
 end
