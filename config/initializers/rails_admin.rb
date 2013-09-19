@@ -83,6 +83,7 @@ RailsAdmin.config do |config|
     configure :updated_at, :datetime 
     configure :ancestry, :string 
     configure :slug, :string 
+    configure :key, :string 
     list do
       field :id
       field :title
