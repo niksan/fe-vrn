@@ -96,8 +96,8 @@ RailsAdmin.config do |config|
         ckeditor do
           true
         end
-        field :key
       end
+      field :key
     end
     export do; end
   end
