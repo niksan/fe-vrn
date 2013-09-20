@@ -1,5 +1,6 @@
 FeVrn::Application.routes.draw do
 
+  post "feedback", to: 'feedback#create', as: 'feedback_create'
   get "pages/show"
 
   mount Ckeditor::Engine => '/ckeditor'

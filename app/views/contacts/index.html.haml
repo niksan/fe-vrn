@@ -1,2 +1,15 @@
-%h1 Contacts#index
-%p Find me in app/views/contacts/index.html.haml
+%h1= @page.title
+!= @page.body
+= form_for :feedback, url: feedback_create_path do |f|
+  %fieldset
+    .control-group
+      = f.label :name, t('feedback.name')
+      .controls= f.text_field :name
+    .control-group
+      = f.label :email, t('feedback.email')
+      .controls= f.text_field :email
+    .control-group
+      = f.label :body, t('feedback.body')
+      .controls= f.text_area :body
+    .form-actions
+      = f.submit t('feedback.submit'), class: 'btn btn-primary'

@@ -1,4 +1,11 @@
 ru:
+  feedback:
+    name: 'Имя'
+    email: 'E-mail'
+    body: 'Сообщение'
+    submit: 'Отправить'
+    send:
+      success: 'Сообщение успешно отправлено'
   order:
     create: 'завершить оформление'
     save:

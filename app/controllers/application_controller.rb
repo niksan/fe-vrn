@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
     end
 
     def find_menu_items
-      @pages = Page.all
+      @main_pages = {}
+      @main_pages[:contacts] = Page.contacts
+      @pages = Page.without_excluded
       @root_categories = Category.roots.order(:position)
       @articles = Article.all
     end
