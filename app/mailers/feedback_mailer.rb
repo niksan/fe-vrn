@@ -5,7 +5,7 @@ class FeedbackMailer < ActionMailer::Base
     @name = prms['name']
     @email = prms['email']
     @body = prms['body']
-    mail(to: 'ktonado-2011@yandex.ru', subject: 'Сообщение с сайта FE-VRN.RU')
+    mail(to: 'fe.vrn.website@gmail.com', subject: 'Сообщение с сайта FE-VRN.RU')
   end
 
 end
