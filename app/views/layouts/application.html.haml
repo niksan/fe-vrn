@@ -1,40 +1,40 @@
 !!!
 %html
-%head
-  %title FeVrn
-  = stylesheet_link_tag 'application', media: 'all'
-  = javascript_include_tag 'application'
-  = csrf_meta_tags
-  = include_gritter
-%body
-  = gflash
-  = gritter_flash_messages
-  .container
-    .raw
-      .navbar
-        .navbar-inner
-          = link_to image_tag('logo.png'), root_path, id: 'logo'
-          #slogans_block
-            .first Свободная энергия
-            .second Free energy
-          #contacts_block
-            .phone
-              %span.prefix +7 (903)
-              %span.number 656-91-33
-            .phone
-              %span.prefix +7 (906)
-              %span.number 680-33-30
-            .address г.Воронеж, ТЦ "Европа", 3 этаж, магазин "Землянка"
-    .raw
-      = render partial: 'shared/carousel', locals: { slides: @slides }
-    .raw
-      .span3
-        = render '/shared/side_menu'
-        #cart
-          %h4 Ваша корзина: 
-          = render partial: 'shared/cart_content', locals: { cart: @cart }
-      .span1
-      .span8
-        = notice
-        = alert
-        #content= yield
+  %head
+    %title= seo_content(:title)
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    = include_gritter
+  %body
+    = gflash
+    = gritter_flash_messages
+    .container
+      .raw
+        .navbar
+          .navbar-inner
+            = link_to image_tag('logo.png'), root_path, id: 'logo'
+            #slogans_block
+              .first Свободная энергия
+              .second Free energy
+            #contacts_block
+              .phone
+                %span.prefix +7 (903)
+                %span.number 656-91-33
+              .phone
+                %span.prefix +7 (906)
+                %span.number 680-33-30
+              .address г.Воронеж, ТЦ "Европа", 3 этаж, магазин "Землянка"
+      .raw
+        = render partial: 'shared/carousel', locals: { slides: @slides }
+      .raw
+        .span3
+          = render '/shared/side_menu'
+          #cart
+            %h4 Ваша корзина: 
+            = render partial: 'shared/cart_content', locals: { cart: @cart }
+        .span1
+        .span8
+          = notice
+          = alert
+          #content= yield

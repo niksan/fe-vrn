@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :find_menu_items, :initialize_cart, :find_slides
+  before_filter :find_menu_items, :initialize_cart, :find_slides, :init_meta_tags
   
   private
     
@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
 
     def find_slides
       @slides = Slide.all
+    end
+
+    def init_meta_tags
+      @meta_tag_content = {}
+      @meta_tag_content[:title] = 'Солнечные батареи, солнечные панели, купить по низким ценам в Воронеже.'
     end
 
 end
