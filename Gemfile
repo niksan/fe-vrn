@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 gem 'pg'
 gem 'rails_admin'
 gem 'rails_admin_nestable'
@@ -13,7 +13,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'gritter_notices'
 gem 'kaminari'
-gem 'yaml_db', github: 'lostapathy/yaml_db'
 gem 'compass-rails'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'friendly_id'
@@ -36,8 +35,5 @@ group :development do
 end
 
 gem 'unicorn'
-gem 'capistrano', '2.15.5'
+gem 'capistrano'
 gem 'debugger'
-gem 'therubyracer'
-gem 'execjs'
-gem 'libv8'
