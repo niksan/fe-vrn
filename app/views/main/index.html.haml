@@ -1,5 +1,5 @@
 - if @page
-  %h1!= @page.name
+  %h1!= @page.title
   %p!= @page.body
 %ul#products
   - @products.try(:each) do |product|
