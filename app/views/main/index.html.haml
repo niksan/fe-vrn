@@ -1,4 +1,6 @@
-%p!= @page.try(:body)
+- if @page
+  %h1!= @page.name
+  %p!= @page.body
 %ul#products
   - @products.try(:each) do |product|
     %li
