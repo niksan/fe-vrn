@@ -1,3 +1,4 @@
+= @page.try(:body)
 %ul#products
   - @products.try(:each) do |product|
     %li
