@@ -84,10 +84,12 @@ RailsAdmin.config do |config|
     configure :ancestry, :string 
     configure :slug, :string 
     configure :key, :string 
+    configure :show_in_menu, :boolean
     list do
       field :id
       field :title
       field :key
+      field :show_in_menu
     end
     show do; end
     edit do
@@ -98,6 +100,7 @@ RailsAdmin.config do |config|
         end
       end
       field :key
+      field :show_in_menu
     end
     export do; end
   end
