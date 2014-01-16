@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  attr_accessible :body, :title, :key
+  attr_accessible :body, :title, :key, :show_in_menu
   has_ancestry
   extend FriendlyId
   friendly_id :title, use: :slugged
