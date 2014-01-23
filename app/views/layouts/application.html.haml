@@ -7,8 +7,10 @@
     %meta{ name: 'description', content: 'Магазин по продаже солнечных батарей, солнечных панелей в Воронеже' }
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
-    = csrf_meta_tags
     = include_gritter
+    %link{ rel: 'shortcut icon', href: image_path('favicon.ico') }
+    %link{ rel: 'icon', href: image_path('favicon.ico') }
+    = csrf_meta_tags
   %body
     = gflash
     = gritter_flash_messages
