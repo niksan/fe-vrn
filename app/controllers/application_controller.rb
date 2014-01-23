@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
     def init_meta_tags
       @meta_tag_content = {}
-      @meta_tag_content[:title_prefix] = 'Солнечные батареи, панели в Воронеже. '
+      @meta_tag_content[:title_prefix] = 'Солнечные батареи, панели. '
       @meta_tag_content[:title] = 'Солнечные батареи, солнечные панели, купить по низким ценам в Воронеже.'
       @meta_tag_content[:keywords] = 'солнечные батареи панели купить по низким ценам Воронеж'
     end
