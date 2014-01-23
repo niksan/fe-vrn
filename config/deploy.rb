@@ -9,7 +9,7 @@ set :unicorn_pid,          "#{fetch(:deploy_to)}/shared/pids/unicorn.pid"
 set :bundle_cmd,           "cd #{fetch(:deploy_to)}/current; rvm use #{fetch(:rvm_ruby_string)} do bundle exec install"
 set :migrate_cmd,          "cd #{fetch(:deploy_to)}/current; RAILS_ENV=#{fetch(:rails_env)} rvm use #{fetch(:rvm_ruby_string)} do bundle exec install"
 set :format,               :pretty
-set :log_level,            :important
+set :log_level,            :info
 set :pty,                  true
 set :linked_files,         %w{config/database.yml}
 set :linked_dirs,          %w{bin log vendor/bundle public/system public/uploads}
