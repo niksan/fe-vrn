@@ -1,5 +1,7 @@
 %h1= @page.title
 != @page.body
+%p
+%script{ type: "text/javascript", charset: "utf-8", src: "//api-maps.yandex.ru/services/constructor/1.0/js/?sid=Qkc4oUyA1L2XFDhbESyr3V2w3_Yr-7zz&width=600&height=450" }
 = form_for :feedback, url: feedback_create_path do |f|
   %fieldset
     .control-group
