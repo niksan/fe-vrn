@@ -36,7 +36,7 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       execute ""
-      execute "cd #{fetch(:deploy_to)}/current; #{fetch(:bundle_cmd)}; [ -f #{fetch(:unicorn_pid)} ] && kill -USR2 `cat #{fetch(:unicorn_pid)}`"
+      execute "cd #{fetch(:deploy_to)}/current; #{fetch(:bundle_cmd)}; [ -f #{fetch(:unicorn_pid)} ] && kill -USR2 `cat #{fetch(:unicorn_pid)}` || #{fetch(:unicorn_start_cmd)}"
     end
   end
 
