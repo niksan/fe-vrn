@@ -64,7 +64,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    columnize (0.3.6)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -73,12 +72,6 @@ GEM
       compass (>= 0.12.2)
     daemons (1.1.9)
     debug_inspector (0.0.2)
-    debugger (1.6.3)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.4)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.4)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -256,7 +249,6 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 3.2.1)
   compass-rails
-  debugger
   devise
   friendly_id
   gritter_notices

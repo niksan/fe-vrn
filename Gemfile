@@ -36,4 +36,4 @@ end
 
 gem 'unicorn'
 gem 'capistrano'
-gem 'debugger'
+#gem 'debugger'

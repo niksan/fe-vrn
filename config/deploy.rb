@@ -14,8 +14,8 @@ set :pty,                  true
 set :linked_files,         %w{config/database.yml}
 set :linked_dirs,          %w{bin log vendor/bundle public/system public/uploads}
 set :keep_releases,        10
-set :unicorn_start_cmd, "(cd #{fetch(:deploy_to)}/current; rvm use #{fetch(:rvm_ruby_string)} do bundle exec unicorn_rails -Dc #{fetch(:unicorn_conf)} -E #{fetch(:rails_env)})"
-set :unicorn_stop_cmd, "if [ -f #{fetch(:unicorn_pid)} ] && [ -e /proc/$(cat #{fetch(:unicorn_pid)}) ]; then kill -QUIT `cat #{fetch(:unicorn_pid)}`; fi"
+set :unicorn_start_cmd,    "(cd #{fetch(:deploy_to)}/current; rvm use #{fetch(:rvm_ruby_string)} do bundle exec unicorn_rails -Dc #{fetch(:unicorn_conf)} -E #{fetch(:rails_env)})"
+set :unicorn_stop_cmd,     "if [ -f #{fetch(:unicorn_pid)} ] && [ -e /proc/$(cat #{fetch(:unicorn_pid)}) ]; then kill -QUIT `cat #{fetch(:unicorn_pid)}`; fi"
 
 namespace :deploy do
 
@@ -36,9 +36,9 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      execute fetch(:unicorn_stop_cmd)
       execute fetch(:unicorn_bundle_cmd)
       execute fetch(:unicorn_migrate_cmd)
+      execute fetch(:unicorn_stop_cmd)
       execute fetch(:unicorn_start_cmd)
     end
   end
