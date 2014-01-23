@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.for_category(params[:id])
-    @meta_tag_content[:title] = @category.name
+    @meta_tag_content[:title] = @meta_tag_content[:title_prefix] + @category.name
   end
 
 end
