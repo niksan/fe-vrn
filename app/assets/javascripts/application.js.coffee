@@ -18,3 +18,6 @@ jQuery ->
   $('ul#products .img img').click ->
     window.location = $(@).parent().parent().find('.name a').attr('href')
     return false
+  $('.short_article .shadow a.more').click ->
+    $(@).parent().parent().addClass('active')
+    return false
