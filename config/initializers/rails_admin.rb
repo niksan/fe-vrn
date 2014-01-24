@@ -256,7 +256,7 @@ RailsAdmin.config do |config|
       field :first_name
       field :last_name
       field :phone
-      field :email
+      field :created_at
     end
     show do; end
     edit do
