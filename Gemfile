@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 gem 'pg'
 gem 'rails_admin'
 gem 'rails_admin_nestable'
@@ -13,18 +13,17 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'gritter_notices'
 gem 'kaminari'
-gem 'yaml_db', github: 'lostapathy/yaml_db'
 gem 'compass-rails'
-gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'bootstrap-sass', '~&gt; 2.3.2.0'
 gem 'friendly_id'
 gem 'state_machine'
 gem 'russian'
 gem 'jquery-rails'
-gem 'sass-rails',   '~> 3.2.3'
-gem 'coffee-rails', '~> 3.2.1'
+gem 'sass-rails',   '~&gt; 3.2.3'
+gem 'coffee-rails', '~&gt; 3.2.1'
 
 group :assets do
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier', '&gt;= 1.0.3'
 end
 
 group :development do
@@ -36,8 +35,5 @@ group :development do
 end
 
 gem 'unicorn'
-gem 'capistrano', '2.15.5'
-gem 'debugger'
-gem 'therubyracer'
-gem 'execjs'
-gem 'libv8'
+gem 'capistrano'
+#gem 'debugger'
