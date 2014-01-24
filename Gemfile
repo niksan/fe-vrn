@@ -14,16 +14,16 @@ gem 'mini_magick'
 gem 'gritter_notices'
 gem 'kaminari'
 gem 'compass-rails'
-gem 'bootstrap-sass', '~&gt; 2.3.2.0'
+gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'friendly_id'
 gem 'state_machine'
 gem 'russian'
 gem 'jquery-rails'
-gem 'sass-rails',   '~&gt; 3.2.3'
-gem 'coffee-rails', '~&gt; 3.2.1'
+gem 'sass-rails',   '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
 
 group :assets do
-  gem 'uglifier', '&gt;= 1.0.3'
+  gem 'uglifier', '>= 1.0.3'
 end
 
 group :development do
