@@ -190,15 +190,18 @@ RailsAdmin.config do |config|
     configure :ancestry, :string 
     configure :position, :integer
     configure :image, :carrierwave
+    configure :alt, :string
     configure :created_at, :datetime 
     configure :updated_at, :datetime 
     list do
       field :id
       field :image
+      field :alt
     end
     show do; end
     edit do
       field :image
+      field :alt
     end
     export do; end
   end
