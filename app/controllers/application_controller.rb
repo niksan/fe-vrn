@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
       @meta_tag_content = {}
       @meta_tag_content[:title_prefix] = 'Солнечные батареи, панели. '
       @meta_tag_content[:title] = 'Солнечные батареи, солнечные панели, купить по низким ценам в Воронеже.'
+      @meta_tag_content[:keywords_prefix] = 'солнечные батареи панели купить по низким ценам Воронеж'
       @meta_tag_content[:keywords] = 'солнечные батареи панели купить по низким ценам Воронеж'
     end
 

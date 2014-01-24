@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find params[:id]
     @meta_tag_content[:title] = @meta_tag_content[:title_prefix] + @article.title
+    @meta_tag_content[:keywords] = (@meta_tag_content[:keywords].split + @article.title.split).join(' ')
   end
 
   private
