@@ -1,3 +1,7 @@
 .img= image_tag(product.main_photo.small, alt: product.name) if product.photos?
 .name= link_to product.name, category_product_path(product.category, product)
+.price
+  цена:
+  = product.price
+  руб.
 = link_to t('actions.to_cart'), cart_items_path(product), class: 'btn btn-info btn-mini btn-buy', remote: true, method: :post
