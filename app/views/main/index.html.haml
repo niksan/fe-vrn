@@ -1,4 +1,10 @@
+- if @page
+  %h1!= @page.title
+  .short_article
+    != @page.body
+    .shadow
+      = link_to 'читать полностью', '#', class: 'more'
+  %hr
 %ul#products
   - @products.try(:each) do |product|
-    %li
-      = render partial: 'products/product', locals: { product: product }
+    %li= render partial: 'products/product', locals: { product: product }

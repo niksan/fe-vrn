@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     def find_menu_items
       @main_pages = {}
       @main_pages[:contacts] = Page.contacts
-      @pages = Page.without_excluded
+      @pages = Page.for_menu
       @root_categories = Category.roots.order(:position)
       @articles = Article.all
     end
@@ -22,7 +22,9 @@ class ApplicationController < ActionController::Base
 
     def init_meta_tags
       @meta_tag_content = {}
+      @meta_tag_content[:title_prefix] = 'Солнечные батареи, панели. '
       @meta_tag_content[:title] = 'Солнечные батареи, солнечные панели, купить по низким ценам в Воронеже.'
+      @meta_tag_content[:keywords_prefix] = 'солнечные батареи панели купить по низким ценам Воронеж'
       @meta_tag_content[:keywords] = 'солнечные батареи панели купить по низким ценам Воронеж'
     end
 

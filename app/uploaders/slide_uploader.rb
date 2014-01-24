@@ -13,7 +13,7 @@ class SlideUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process resize_to_fill: [940, 250]
+    process resize_to_fill: [940, 200]
   end
 
 end
