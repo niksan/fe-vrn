@@ -24,6 +24,6 @@ FeVrn::Application.routes.draw do
 
   resources :orders, only: [:new, :create]
   resources :articles, :pages, only: :show
-  resources :sitemap, :contacts, only: :index
+  resources :yandex_market, :sitemap, :contacts, only: :index
 
 end

@@ -6,5 +6,6 @@
           .item.active= image_tag slide.image.medium.url, alt: slide.alt
         - else
           .item= image_tag slide.image.medium.url, alt: slide.alt
+          
     = link_to raw('&lsaquo;'), '#myCarousel', :'data-slide' => 'prev', class: 'carousel-control left'
     = link_to raw('&rsaquo;'), '#myCarousel', :'data-slide' => 'next', class: 'carousel-control right'
