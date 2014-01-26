@@ -1,5 +1,4 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :lot, :name, :price, :related_products, :category_id, :photos_attributes, :remove_image, :disabled, :show_on_main_page, :yandex_market_attributes
   validates :name, :price, :category_id, presence: true
   validates :lot, uniqueness: true, allow_blank: true
   has_ancestry
@@ -12,8 +11,8 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :photos, allow_destroy: true
   accepts_nested_attributes_for :yandex_market_info, allow_destroy: true
   
-  default_scope where(disabled: false).order('category_id, price, name')
-  scope :main_page, where(show_on_main_page: true)
+  default_scope -> { where(disabled: false).order('category_id, price, name') }
+  scope :main_page, -> { where(show_on_main_page: true) }
   
   def related_products_enum
     Product.order(:name).map { |p| [p.name, p.id] }
