@@ -30,7 +30,7 @@ xml.yml_catalog date: @date do
           xml.price product.price.to_i
           xml.currencyId 'RUR'
           xml.categoryId product.category_id
-          xml.picture "http://#{@host}#{product.main_photo.medium.url}"
+          xml.picture "http://#{@host}#{product.main_photo.medium.url}" if product.picture
           xml.delivery 'true'
           xml.local_delivery_cost 0
         end
