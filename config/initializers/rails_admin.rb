@@ -74,6 +74,20 @@ RailsAdmin.config do |config|
     export do; end
   end
 
+  config.model 'Firm' do
+    configure :id, :integer 
+    configure :name, :string 
+    list do
+      field :id
+      field :name
+    end
+    show do; end
+    edit do
+      field :name
+    end
+    export do; end
+  end
+
   config.model 'Page' do
     nestable_list true
     configure :id, :integer 
@@ -129,6 +143,7 @@ RailsAdmin.config do |config|
     nestable_list true
     configure :category, :belongs_to_association
     configure :photos, :has_many_association
+    configure :yandex_market_info, :has_one_association
     configure :id, :integer 
     configure :lot, :string 
     configure :name, :string 
@@ -165,6 +180,7 @@ RailsAdmin.config do |config|
       field :related_products
       field :photos
       field :show_on_main_page
+      field :yandex_market_info
     end
     export do; end
   end
@@ -282,6 +298,20 @@ RailsAdmin.config do |config|
     show do; end
     edit do
       field :items
+    end
+    export do; end
+  end
+
+  config.model 'YandexMarketInfo' do
+    configure :firm, :belongs_to_association
+    configure :product, :belongs_to_association
+    configure :id, :integer 
+    configure :model, :string
+    list do; end
+    show do; end
+    edit do
+      field :firm
+      field :model
     end
     export do; end
   end

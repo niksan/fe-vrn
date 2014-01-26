@@ -1,5 +1,5 @@
 xml.instruct!
-xml.declare! :DOCTYPE, :yml_catalog, :SYSTEM, 'http://fe-vrn.ru/yandex_market.dtd'
+xml.declare! :DOCTYPE, :yml_catalog, :SYSTEM, 'shops.dtd'
 
 xml.yml_catalog date: @date do
   
@@ -25,14 +25,17 @@ xml.yml_catalog date: @date do
 
     xml.offers do
       @products.each do |product|
-        xml.offer(id: product.id) do
+        xml.offer(id: product.id, type: 'vendor.model') do
           xml.url category_product_url(product.category, product, host: @host, port: nil)
+          xml.name product.name
           xml.price product.price.to_i
           xml.currencyId 'RUR'
           xml.categoryId product.category_id
           xml.picture "http://#{@host}#{product.main_photo.medium.url}" unless product.photos.empty?
           xml.delivery 'true'
           xml.local_delivery_cost 0
+          xml.vendor #TODO
+          xml.model #TODO
         end
       end
     end

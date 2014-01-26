@@ -19,6 +19,11 @@ ru:
         few: 'категории'
         many: 'категории'
         other: 'категории'
+      firm:
+        one: 'фирма'
+        few: 'фирмы'
+        many: 'фирмы'
+        other: 'фирмы'
       page: 
         one: 'страница'
         few: 'страницы'
@@ -68,6 +73,10 @@ ru:
         created_at: 'создано'
         updated_at: 'обновлено'
       category:
+        name: 'название'
+        created_at: 'создано'
+        updated_at: 'обновлено'
+      firm:
         name: 'название'
         created_at: 'создано'
         updated_at: 'обновлено'
