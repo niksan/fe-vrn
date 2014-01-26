@@ -26,6 +26,7 @@ xml.yml_catalog date: @date do
     xml.offers do
       @products.each do |product|
         xml.offer(id: product.id) do
+          xml.url category_product_url(product.category, product, host: @host, port: nil)
         end
       end
     end

@@ -5,7 +5,7 @@ class YandexMarketController < ApplicationController
     @host = 'fe-vrn.ru'
     @date = Time.zone.now.strftime("%Y-%m-%d %H:%M")
     @categories = Category.all
-    @products = Product.all
+    @products = Product.includes(:category)
     respond_to :xml
   end
 
