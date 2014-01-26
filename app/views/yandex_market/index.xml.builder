@@ -27,6 +27,12 @@ xml.yml_catalog date: @date do
       @products.each do |product|
         xml.offer(id: product.id) do
           xml.url category_product_url(product.category, product, host: @host, port: nil)
+          xml.price product.price.to_i
+          xml.currencyId 'RUR'
+          xml.categoryId product.category_id
+          xml.picture "http://#{@host}#{product.main_photo.medium.url}"
+          xml.delivery 'true'
+          xml.local_delivery_cost 0
         end
       end
     end
