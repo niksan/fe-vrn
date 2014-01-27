@@ -11,7 +11,7 @@ gem 'ancestry'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'gritter_notices'
+gem 'gritter', '1.0.3'
 gem 'kaminari'
 gem 'compass-rails', github: "Compass/compass-rails"#, branch: "rails4-hack"
 gem 'bootstrap-sass', '~> 2.3.2.0'

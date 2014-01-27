@@ -94,10 +94,6 @@ GEM
       railties (>= 3.2, < 5.0)
     fssm (0.2.10)
     gritter (1.0.3)
-    gritter_notices (0.1.1)
-      actionpack
-      activerecord
-      gritter
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -251,7 +247,7 @@ DEPENDENCIES
   compass-rails!
   devise
   friendly_id!
-  gritter_notices
+  gritter (= 1.0.3)
   haml-rails
   jquery-rails
   kaminari

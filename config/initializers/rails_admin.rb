@@ -41,11 +41,7 @@ RailsAdmin.config do |config|
     show do; end
     edit do
       field :title
-      field :body do
-        ckeditor do
-          true
-        end
-      end
+      field :body, :ck_editor
     end
     export do; end
   end
@@ -108,11 +104,7 @@ RailsAdmin.config do |config|
     show do; end
     edit do
       field :title
-      field :body do
-        ckeditor do
-          true
-        end
-      end
+      field :body, :ck_editor
       field :key
       field :show_in_menu
     end
@@ -171,11 +163,7 @@ RailsAdmin.config do |config|
       field :category
       field :lot
       field :name
-      field :description do
-        ckeditor do
-          true
-        end
-      end
+      field :description, :ck_editor
       field :price
       field :related_products
       field :photos

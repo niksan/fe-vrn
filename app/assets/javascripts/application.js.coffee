@@ -1,11 +1,12 @@
-#= require jquery
-#= require jquery_ujs
-#= require bootstrap-alert
-#= require_tree ../../../vendor/assets/javascripts/fancybox
-#= require ../../../vendor/assets/javascripts/bootstrap-transition
-#= require ../../../vendor/assets/javascripts/bootstrap-alert
-#= require ../../../vendor/assets/javascripts/bootstrap-carousel
-#= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap-alert
+//= require_tree ../../../vendor/assets/javascripts/fancybox
+//= require ../../../vendor/assets/javascripts/bootstrap-transition
+//= require ../../../vendor/assets/javascripts/bootstrap-alert
+//= require ../../../vendor/assets/javascripts/bootstrap-carousel
+//= require gritter
+//= require_tree .
 
 jQuery ->
   $('.carousel').carousel({
