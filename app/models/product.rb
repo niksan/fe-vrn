@@ -8,8 +8,7 @@ class Product < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   belongs_to :category
   has_one :yandex_market_info
-  accepts_nested_attributes_for :photos, allow_destroy: true
-  accepts_nested_attributes_for :yandex_market_info, allow_destroy: true
+  accepts_nested_attributes_for :yandex_market_info, :photos, allow_destroy: true
   
   default_scope -> { where(disabled: false).order('category_id, price, name') }
   scope :main_page, -> { where(show_on_main_page: true) }
