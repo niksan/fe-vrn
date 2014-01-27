@@ -21,7 +21,7 @@ RailsAdmin.config do |config|
 
   config.excluded_models = ['GritterNotice', 'Ckeditor::Asset', 'Ckeditor::AttachmentFile', 'Ckeditor::Picture']
 
-  [:email, :title].each do |method|
+  [:email, :title, :label].each do |method|
     config.label_methods << method
   end
 

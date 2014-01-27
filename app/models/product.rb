@@ -12,6 +12,12 @@ class Product < ActiveRecord::Base
   
   default_scope -> { where(disabled: false).order('category_id, price, name') }
   scope :main_page, -> { where(show_on_main_page: true) }
+
+  def yandex_marker_ready?
+    if y_m = self.yandex_market_info
+      y_m.model && !y_m.empty?
+    end
+  end
   
   def related_products_enum
     Product.order(:name).map { |p| [p.name, p.id] }
