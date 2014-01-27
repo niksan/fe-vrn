@@ -28,7 +28,7 @@ xml.yml_catalog date: @date do
         if product.yandex_market_ready?
           xml.offer(id: product.id, type: 'vendor.model') do
             xml.url category_product_url(product.category, product, host: @host, port: nil)
-            xml.name product.name
+#            xml.name product.name
             xml.price product.price.to_i
             xml.currencyId 'RUR'
             xml.categoryId product.category_id
