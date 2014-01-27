@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
 
   def yandex_market_ready?
     if y_m = self.yandex_market_info
-      y_m.firm_id && !y_m.model.empty?
+      y_m.firm_id && !y_m.model.empty? && self.price > 0
     end
   end
   
