@@ -35,8 +35,8 @@ xml.yml_catalog date: @date do
             xml.picture "http://#{@host}#{product.main_photo.medium.url}" unless product.photos.empty?
             xml.delivery 'true'
             xml.local_delivery_cost 0
-            xml.vendor #TODO
-            xml.model #TODO
+            xml.vendor product.yandex_market_info.firm.name
+            xml.model product.yandex_market_info.model
           end
         end
       end
