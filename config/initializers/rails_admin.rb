@@ -56,6 +56,7 @@ RailsAdmin.config do |config|
     configure :name, :string 
     configure :slug, :string 
     configure :ancestry, :string 
+    configure :description, :text
     configure :created_at, :datetime 
     configure :updated_at, :datetime 
     object_label_method :name
@@ -66,6 +67,7 @@ RailsAdmin.config do |config|
     show do; end
     edit do;
       field :name
+      field :description, :ck_editor
     end
     export do; end
   end
