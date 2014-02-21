@@ -1,4 +1,14 @@
 ru:
+  orders:
+    create:
+      orders:
+        new:
+          first_name: 'Имя'
+          last_name: 'Фамилия'
+          phone: 'Телефон'
+          address: 'Адресс'
+          email: 'Email'
+          additional: 'Дополнительно'
   feedback:
     name: 'Имя'
     email: 'E-mail'
