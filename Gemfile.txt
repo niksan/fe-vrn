@@ -1,0 +1,39 @@
+
+<!-- saved from url=(0062)https://raw.githubusercontent.com/niksan/fe-vrn/master/Gemfile -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">source 'https://rubygems.org'
+
+gem 'rails', '4.0.2'
+gem 'pg'
+gem 'rails_admin'
+gem 'rails_admin_nestable'
+gem 'ckeditor'
+gem 'devise'
+gem 'cancan'
+gem 'ancestry'
+gem 'haml-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'gritter', '1.0.3'
+gem 'kaminari'
+gem 'compass-rails', github: "Compass/compass-rails"#, branch: "rails4-hack"
+gem 'bootstrap-sass', '~&gt; 2.3.2.0'
+gem 'friendly_id', github: 'norman/friendly_id'
+gem 'state_machine'
+gem 'russian'
+gem 'jquery-rails'
+gem 'sass-rails', '~&gt; 4.0.0'
+gem 'coffee-rails', '~&gt; 4.0.0'
+gem 'uglifier', '&gt;= 1.3.0'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'letter_opener'
+  gem 'thin'
+  gem 'capistrano', '~&gt; 3.0.0', require: false
+end
+
+gem 'unicorn'
+#gem 'debugger'
+</pre></body><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style></html>

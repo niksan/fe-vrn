@@ -21,7 +21,7 @@ RailsAdmin.config do |config|
 
   config.excluded_models = ['GritterNotice', 'Ckeditor::Asset', 'Ckeditor::AttachmentFile', 'Ckeditor::Picture']
 
-  [:email, :title].each do |method|
+  [:email, :title, :label].each do |method|
     config.label_methods << method
   end
 
@@ -41,11 +41,7 @@ RailsAdmin.config do |config|
     show do; end
     edit do
       field :title
-      field :body do
-        ckeditor do
-          true
-        end
-      end
+      field :body, :ck_editor
     end
     export do; end
   end
@@ -60,6 +56,7 @@ RailsAdmin.config do |config|
     configure :name, :string 
     configure :slug, :string 
     configure :ancestry, :string 
+    configure :description, :text
     configure :created_at, :datetime 
     configure :updated_at, :datetime 
     object_label_method :name
@@ -70,6 +67,7 @@ RailsAdmin.config do |config|
     show do; end
     edit do;
       field :name
+      field :description, :ck_editor
     end
     export do; end
   end
@@ -108,11 +106,7 @@ RailsAdmin.config do |config|
     show do; end
     edit do
       field :title
-      field :body do
-        ckeditor do
-          true
-        end
-      end
+      field :body, :ck_editor
       field :key
       field :show_in_menu
     end
@@ -171,11 +165,7 @@ RailsAdmin.config do |config|
       field :category
       field :lot
       field :name
-      field :description do
-        ckeditor do
-          true
-        end
-      end
+      field :description, :ck_editor
       field :price
       field :related_products
       field :photos
