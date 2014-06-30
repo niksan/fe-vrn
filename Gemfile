@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.2'
 gem 'pg'
 gem 'rails_admin'
 gem 'rails_admin_nestable'
@@ -33,5 +33,6 @@ group :development do
   gem 'capistrano-rvm', '~> 0.1.0'
 end
 
-gem 'unicorn'
-#gem 'debugger'
+group :production do
+  gem 'unicorn'
+end
