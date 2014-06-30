@@ -2,7 +2,7 @@ set :application,          'fe-vrn'
 set :repo_url,             'git://github.com/niksan/fe-vrn.git'
 set :scm,                  :git
 set :rails_env,            'production'
-set :rvm_ruby_string,      '2.1.0@rails4'
+set :rvm_ruby_string,      '2.1.2@rails4'
 set :deploy_to,            "/srv/htdocs/#{fetch(:application)}"
 set :unicorn_conf,         "#{fetch(:deploy_to)}/current/config/unicorn.rb"
 set :unicorn_pid,          "#{fetch(:deploy_to)}/shared/pids/unicorn.pid"
