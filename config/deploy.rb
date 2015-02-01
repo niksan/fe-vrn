@@ -9,7 +9,7 @@ set :use_sudo, false
 set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
-set :rvm_ruby_string, '2.1.2@fe-vrn.ru' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
+set :rvm_ruby_string, '2.2.0@fe-vrn.ru' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
 
 set :scm, :git # Используем git. Можно, конечно, использовать что-нибудь другое - svn, например, но общая рекомендация для всех кто не использует git - используйте git. 
 set :repository,  "git@github.com:niksan/fe-vrn.git" # Путь до вашего репозитария. Кстати, забор кода с него происходит уже не от вас, а от сервера, поэтому стоит создать пару rsa ключей на сервере и добавить их в deployment keys в настройках репозитария.
@@ -22,9 +22,7 @@ set :deploy_via, :remote_cache # Указание на то, что стоит �
 role :web, domain
 role :app, domain
 role :db,  domain, :primary => true
-before 'deploy:setup', 'rvm:install_rvm'
-before 'deploy:setup', 'rvm:install_ruby'
-before 'deploy:setup', 'rvm:create_gemset'
+before 'deploy', 'rvm:install_rvm', 'rvm:install_ruby', 'rvm:create_gemset'
 
 before "deploy:assets:precompile", 'deploy:symlink_shared'
 
