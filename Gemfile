@@ -19,9 +19,9 @@ gem 'friendly_id', github: 'norman/friendly_id'
 gem 'state_machine'
 gem 'russian'
 gem 'jquery-rails'
-gem 'sass-rails', '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails'#, '~> 4.0.0'
+gem 'coffee-rails'#, '~> 4.0.0'
+gem 'uglifier'#, '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 gem 'execjs'
 
