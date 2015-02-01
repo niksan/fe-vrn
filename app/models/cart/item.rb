@@ -1,4 +1,4 @@
-class Cart::Item < ActiveResource::Base
+class Cart::Item
 
   attr_reader :product_id
   attr_accessor :quantity

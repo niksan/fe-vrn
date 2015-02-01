@@ -3,7 +3,6 @@ class CartController < ApplicationController
   def index
     redirect_to root_path if @cart.empty?
   end
-
   def update
     params[:cart_items].each do |item, quantity|
       current_item = @cart.item(item.to_i)

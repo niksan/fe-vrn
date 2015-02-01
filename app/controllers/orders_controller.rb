@@ -5,21 +5,26 @@ class OrdersController < ApplicationController
   def create
     begin
       ActiveRecord::Base.transaction do
-        @order = Order.new(params[:order])
+        @order = Order.new(order_params)
         @order.save!
-       create_order_items!
-        OrderMailer.order(get_order_datas(params[:order]), @cart.to_s).deliver
+        create_order_items!
+        OrderMailer.order(get_order_datas(order_params), @cart.to_s).deliver
         @cart.empty!
       end
-      flash[:success] = t('order.save.success')
+      gflash success: t('order.save.success')
       redirect_to root_path
-     rescue
-       flash[:error] = t('order.save.error')
-       render :new
-     end
-   end
+    rescue
+      gflash error: t('order.save.error')
+      render :new
+    end
+  end
 
-   private
+  private
+
+    def order_params
+      params.require(:order).permit(:first_name, :last_name, :phone, :address, :email, :additional)
+    end
+    
     
     def create_order_items!
       @cart.items.each do |item|

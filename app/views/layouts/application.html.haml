@@ -7,13 +7,10 @@
     %meta{ name: 'description', content: 'Магазин по продаже солнечных батарей, солнечных панелей в Воронеже' }
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
-    = include_gritter
-    %link{ rel: 'shortcut icon', href: image_path('favicon.ico') }
-    %link{ rel: 'icon', href: image_path('favicon.ico') }
+    %link{ rel: 'shortcut icon', href: image_path('favicon.ico'), type: 'image/x-icon' }
     = csrf_meta_tags
   %body
     = gflash
-    = gritter_flash_messages
     .container
       .raw
         .navbar
@@ -47,3 +44,4 @@
       #footer.raw
         = link_to 'Разработка и продвижение сайта - NikSan', 'http://niksan.ru', target: '_blank'
     = render 'shared/yandex_metrica'
+    = render 'shared/google_analitics'

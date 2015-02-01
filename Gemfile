@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.2'
 gem 'pg'
 gem 'rails_admin'
 gem 'rails_admin_nestable'
@@ -11,7 +11,7 @@ gem 'ancestry'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'gritter_notices'
+gem 'gritter', '1.0.3'
 gem 'kaminari'
 gem 'compass-rails', github: "Compass/compass-rails"#, branch: "rails4-hack"
 gem 'bootstrap-sass', '~> 2.3.2.0'
@@ -32,4 +32,6 @@ group :development do
   gem "rvm-capistrano", '~> 1.5.3'
 end
 
-gem 'unicorn'
+group :production do
+  gem 'unicorn'
+end

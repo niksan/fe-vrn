@@ -1,6 +1,6 @@
 %h1 Оформление заказа
 = error_messages(@order)
-= form_for :order, url: orders_path, method: :post, html: { id: 'new_order' } do |f|
+= form_for :order, url: orders_path, method: :post, html: { id: 'new_order', role: 'form' } do |f|
   .control-group
     = f.label :first_name, t('.first_name'), class: 'control-label'
     .controls
