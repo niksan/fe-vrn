@@ -22,7 +22,9 @@ set :deploy_via, :remote_cache # Указание на то, что стоит �
 role :web, domain
 role :app, domain
 role :db,  domain, :primary => true
-before 'deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby' # интеграция rvm с capistrano настолько хороша, что при выполнении cap deploy:setup установит себя и указанный в rvm_ruby_string руби.
+before 'deploy:setup', 'rvm:install_rvm'
+before 'deploy:setup', 'rvm:install_ruby'
+before 'deploy:setup', 'rvm:create_gemset'
 
 before "deploy:assets:precompile", 'deploy:symlink_shared'
 
