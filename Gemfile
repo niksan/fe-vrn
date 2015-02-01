@@ -28,9 +28,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'letter_opener'
-  gem 'thin'
-  gem 'capistrano', '~> 3.0.0', require: false
+  gem "capistrano", '~> 2.15.5'
+  gem "rvm-capistrano", '~> 1.5.3'
 end
 
 gem 'unicorn'
-#gem 'debugger'
