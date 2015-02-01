@@ -22,7 +22,7 @@ set :deploy_via, :remote_cache # Указание на то, что стоит �
 role :web, domain
 role :app, domain
 role :db,  domain, :primary => true
-before 'deploy', 'rvm:install_rvm', 'rvm:install_ruby', 'rvm:create_gemset'
+before 'deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby', 'rvm:create_gemset'
 
 before "deploy:assets:precompile", 'deploy:symlink_shared'
 
