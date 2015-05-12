@@ -31,7 +31,6 @@ group :development do
   gem 'meta_request'
   gem 'letter_opener'
   gem "capistrano", '~> 2.15.5'
-  gem "rvm-capistrano", '~> 1.5.3'
 end
 
 group :production do
