@@ -24,11 +24,9 @@ gem 'coffee-rails'#, '~> 4.0.0'
 gem 'uglifier'#, '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 gem 'execjs'
+gem "nokogiri", '~> 1.6.6.2'
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
   gem 'letter_opener'
   gem "capistrano", '~> 2.15.5'
 end
