@@ -5,7 +5,7 @@ gem 'pg'
 gem 'rails_admin'
 gem 'rails_admin_nestable'
 gem 'ckeditor'
-gem 'devise', require: true
+gem 'devise'
 gem 'cancan', '~> 1.6.10'
 gem 'ancestry'
 gem 'haml-rails'
